@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+version = '1.0'
+
+mainClassName = "app.PSTReader"
+applicationName = "PSTReader"
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.batcha.gradle.plugins:git-dependencies:0.2'
+    }
+}
+
+apply plugin: 'git-dependencies'
+repositories {
+    mavenCentral()
+}
+dependencies {
+	compile 'commons-logging:commons-logging:1.1.+'
+	compile 'log4j:log4j:1.2.+'
+	compile 'org.apache.solr:solr-solrj:4.10.3'
+	compile 'org.eclipse.jetty:jetty-server:9.3.0.M1'
+	compile('com.pff:java-libpst:0.8.1').ext.git = 'https://github.com/rjohnsondev/java-libpst.git'
+}
